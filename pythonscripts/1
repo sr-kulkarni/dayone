@@ -1,0 +1,29 @@
+import sys
+
+def findDups(total,array):
+	obssum = 0
+	expected = total*(total+1)/2
+	for element in array:
+		obssum += element	
+	print expected-obssum
+	
+	
+
+
+
+
+if __name__ == '__main__':
+	with open(sys.argv[1],"r") as f:
+		lines = f.readlines()
+
+        for line in lines:
+		if len(line) == 0: pass
+		line2,notimp = line.split('\n')
+		number,rest = line2.split(';')
+		type(number)
+		#print n2
+		#array = rest.split(',')
+		#n2 -= 2
+		#findDups(number2,array)	
+
+
