@@ -18,14 +18,30 @@ class MinStic:
 		ans = []
 		i = 0
 		j = 0
+
+		def compare(str1,str2,i,j):
+			#print "comapring"
+			k = min(len(str1)-i,len(str2)-j)
+			for it in range(0,k):
+				if str1[i+it] < str2[j+it]:
+					#print str1[i+it] +" is lesser than " + str2[j+it]
+					return -1
+				else:
+					#print "greater second"
+					return 1
+			return (len(str2)-j) - (len(str1)-i)
+
+
+
 		while i < l1 or j < l2:
+			#print " in the loop now"
 			if(i == l1):
 				ans.append(s2[j:])
 				break
 			elif(j == l2):
 				ans.append(s1[i:])
 				break
-			elif(ord(s1[i]) < ord(s2[j])):
+			elif compare(s1,s2,i,j) < 0:
 				ans.append(s1[i])
 				i += 1
 			else:
@@ -37,7 +53,7 @@ class MinStic:
 
 
 
-		print ''.join(ans)
+		return ''.join(ans)
 
 
 
@@ -45,10 +61,13 @@ class MinStic:
 if __name__ == '__main__':
 	wordCount = input()
 	if wordCount < 1 or wordCount > 5: raise Exception()
-
+	array = []
 
 	for i in range(wordCount):
 		str1 = sys.stdin.readline().rstrip('\n')
 		str2 = sys.stdin.readline().rstrip('\n')
 		M = MinStic(str1,str2)
-		M.doStuff()
+		array.append(M.doStuff())
+
+	for stuff in array:
+		print stuff
