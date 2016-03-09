@@ -1,0 +1,8 @@
+from collections import Counter
+
+if __name__ == '__main__':
+	
+	string = "yo yo honey singhe!"
+	string = string.strip(' ')
+	c = Counter(string)
+	print c
