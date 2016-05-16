@@ -18,12 +18,12 @@ void max_sum(int *array, int cols, int *start, int *end, int *sum){
     {
         /*
         Algorithm - 
-	We calculate the current sum of contiguos elements by adding the next element to the current sum.
-	If current observed sum > maximum sum so far, we update the max value (and the start and end pointers) and go on.
+		We calculate the current sum of contiguous elements by adding the next element to the current sum.
+		If current observed sum > maximum sum so far, we update the max value (and the start and end pointers) and go on.
         If the current falls below 0, we know it can't be a part of max sum elements, 
 		so we update current sum to 0 and the start iterator to the element net to the one being scanned and continue the traversal. 
-	Complexity - O(n)
-	*/
+		Complexity - O(n)
+		*/
 	curr = curr + *(array+i);
         if(curr > *sum)
         {
@@ -125,7 +125,7 @@ int main(){
   /*
   Algorithm:
   1. We first traverse the matrix row by row - 
-	while doing this, we consider a temporary array (of size 'Column' 
+	 while doing this, we consider a temporary array (of size 'Column' 
 		this array holds the sum of elements in each column of the row below.
      e.g. If our Matrix looks like: 1 2 3 
                                     4 5 6 
