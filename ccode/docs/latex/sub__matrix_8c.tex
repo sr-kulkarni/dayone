@@ -1,0 +1,49 @@
+\hypertarget{sub__matrix_8c}{\section{sub\-\_\-matrix.\-c File Reference}
+\label{sub__matrix_8c}\index{sub\-\_\-matrix.\-c@{sub\-\_\-matrix.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sub__matrix_8c_a89f092c3615b9766145df6f0bae531aa}{max\-\_\-sum} (int $\ast$array, int cols, int $\ast$start, int $\ast$end, int $\ast$sum)
+\item 
+int \hyperlink{sub__matrix_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{sub__matrix_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{sub\-\_\-matrix.\-c@{sub\-\_\-matrix.\-c}!main@{main}}
+\index{main@{main}!sub_matrix.c@{sub\-\_\-matrix.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{sub__matrix_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+Variable declaration and initialization We will use a double pointer to hold the 2\-D matrix for dynamic allocation of space.
+
+We first ask the user about the desired Matrix size, making sure that they input the right values.
+
+Now that we know the size, we dynamically allocate memory of that size to hold the matrix elements.
+
+The way we do this is to consider a matrix as an array of arrays. Every array will hold elements equal to Column size and there would be 'Row' number of such arrays.
+
+Algorithm\-:
+\begin{DoxyEnumerate}
+\item We first traverse the matrix row by row -\/ while doing this, we consider a temporary array (of size 'Column' this array holds the sum of elements in each column of the row below. e.\-g. If our Matrix looks like\-: 1 2 3 4 5 6 7 8 9 when we are at row 0, the temp array will hold\-: \mbox{[}1+4+7,2+5+8,3+6+8\mbox{]} and so on.
+\item With this array in place, we then find out the maximum sum of contiguous elements (start and end) and record it. If on further iteration, we find a sum greater than earlier, we update the value and the start and end coordinates.
+\item The max sum recorded at the end of all iterations and the i,j (See loop below) start,end values give us the matrix that has the highest sum of elements. Note\-: This Algorithm only works if at least one matrix element is positive. Complexity \-: O(n$^\wedge$3)
+\end{DoxyEnumerate}\hypertarget{sub__matrix_8c_a89f092c3615b9766145df6f0bae531aa}{\index{sub\-\_\-matrix.\-c@{sub\-\_\-matrix.\-c}!max\-\_\-sum@{max\-\_\-sum}}
+\index{max\-\_\-sum@{max\-\_\-sum}!sub_matrix.c@{sub\-\_\-matrix.\-c}}
+\subsubsection[{max\-\_\-sum}]{\setlength{\rightskip}{0pt plus 5cm}void max\-\_\-sum (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{array, }
+\item[{int}]{cols, }
+\item[{int $\ast$}]{start, }
+\item[{int $\ast$}]{end, }
+\item[{int $\ast$}]{sum}
+\end{DoxyParamCaption}
+)}}\label{sub__matrix_8c_a89f092c3615b9766145df6f0bae531aa}
+Given an array, this function will find out the maximum sum of its contiguous elements. e.\-g. given, 1,-\/2,3,5 -\/ Max sum = 8 (3,5)
+
+Algorithm -\/ We calculate the current sum of contiguous elements by adding the next element to the current sum. If current observed sum $>$ maximum sum so far, we update the max value (and the start and end pointers) and go on. If the current falls below 0, we know it can't be a part of max sum elements, so we update current sum to 0 and the start iterator to the element net to the one being scanned and continue the traversal. Complexity -\/ O(n)

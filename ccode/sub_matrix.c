@@ -3,7 +3,7 @@
 
 
 void max_sum(int *array, int cols, int *start, int *end, int *sum){
-    /*
+    /**
     Given an array, this function will find out the maximum sum of its contiguous elements.
     e.g. given, 1,-2,3,5 - Max sum = 8 (3,5)  
     */  
@@ -16,7 +16,7 @@ void max_sum(int *array, int cols, int *start, int *end, int *sum){
     int iterator = 0;
     for(i = 0; i<cols; i++)
     {
-        /*
+        /**
         Algorithm - 
 		We calculate the current sum of contiguous elements by adding the next element to the current sum.
 		If current observed sum > maximum sum so far, we update the max value (and the start and end pointers) and go on.
@@ -40,7 +40,7 @@ void max_sum(int *array, int cols, int *start, int *end, int *sum){
 }
 
 int main(){
-  /* Variable declaration and initialization 
+  /** Variable declaration and initialization 
   We will use a double pointer to hold the 2D matrix
   for dynamic allocation of space.
   */
@@ -60,7 +60,7 @@ int main(){
   end = row1;
   max_so_far = -1;
   matrix = NULL;
-  /*
+  /**
   We first ask the user about the desired Matrix size, 
   making sure that they input the right values.
   */
@@ -75,12 +75,12 @@ int main(){
 	printf("\nInvalid Input! Exiting..");
 	exit(-1);
   }
-  /*
+  /**
   Now that we know the size, we dynamically allocate memory of that size
   to hold the matrix elements.
   */
  
-  /*
+  /**
   The way we do this is to consider a matrix as an array of arrays.
   Every array will hold elements equal to Column size and there would be
   'Row' number of such arrays.
@@ -122,7 +122,7 @@ int main(){
   }
   printf("\n");
   
-  /*
+  /**
   Algorithm:
   1. We first traverse the matrix row by row - 
 	 while doing this, we consider a temporary array (of size 'Column' 
